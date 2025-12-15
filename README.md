@@ -19,16 +19,30 @@
 
 ### 一键安装指令
 
+你可以使用以下任何一种方式执行脚本：
+
+**方式一：使用管道 (pipe)**
 ```bash
 curl -fsSL https://raw.githubusercontent.com/clhui/openvpnfor0.5G/main/install.sh | bash
+```
+
+**方式二：使用进程替换 (process substitution)**
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/clhui/openvpnfor0.5G/main/install.sh)
 ```
 
 ### 自定义 Swap 大小
 
 默认创建 1024MB 的 Swap。你可以通过设置 `SWAP_SIZE_MB` 环境变量来调整大小。
 
+**方式一：使用管道 (pipe)**
 ```bash
 SWAP_SIZE_MB=2048 curl -fsSL https://raw.githubusercontent.com/clhui/openvpnfor0.5G/main/install.sh | bash
+```
+
+**方式二：使用进程替换 (process substitution)**
+```bash
+SWAP_SIZE_MB=2048 bash <(curl -fsSL https://raw.githubusercontent.com/clhui/openvpnfor0.5G/main/install.sh)
 ```
 
 ## 安装后操作
