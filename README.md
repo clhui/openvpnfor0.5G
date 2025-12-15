@@ -51,6 +51,16 @@ SWAP_SIZE_MB=2048 bash <(curl -fsSL https://raw.githubusercontent.com/clhui/open
 
 安装脚本执行完毕后，**请仔细检查终端的输出日志**。官方安装程序会自动生成管理员界面的 URL、默认用户名 `openvpn` 以及一个**随机密码**。
 
+#### 忘记密码或关闭了窗口怎么办？
+
+如果忘记了初始密码或不慎关闭了安装窗口，可以通过查看日志文件来找回：
+
+```bash
+cat /usr/local/openvpn_as/init.log
+```
+
+该文件包含了完整的初始安装信息，包括随机生成的密码。
+
 输出示例：
 
 ```
