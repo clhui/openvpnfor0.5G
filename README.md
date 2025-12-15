@@ -45,6 +45,36 @@ SWAP_SIZE_MB=2048 curl -fsSL https://raw.githubusercontent.com/clhui/openvpnfor0
 SWAP_SIZE_MB=2048 bash <(curl -fsSL https://raw.githubusercontent.com/clhui/openvpnfor0.5G/main/install.sh)
 ```
 
+## Vultr 部署示例
+
+本教程以 Vultr 的共享 CPU (Shared CPU) 实例为例，指导你如何快速部署。
+
+1.  **创建服务器**
+    *   登录 Vultr 后台，点击“Deploy Server”。
+    *   选择 “Cloud Compute” 或 “High Frequency”。
+    *   **Server Location**: 选择你想要的节点，例如 New York (NJ)。
+    *   **Server Image**: 在 “Operating System” 标签页下，选择一个受支持的 Linux 发行版，例如 `Ubuntu 22.04 LTS x64`。
+    *   **Server Size**: 选择最适合低内存方案的套餐，例如每月 $6 的 `1 vCPU, 1 GB Memory, 25 GB NVMe`。即使是 512MB 内存的套餐也同样适用。
+    *   **Additional Features**: 确保 `Enable IPv6` 是勾选的（如果需要）。
+    *   **Server Hostname & Label**: 设置一个你喜欢的主机名和标签。
+    *   点击 “Deploy Now” 完成创建。
+
+2.  **连接服务器**
+    *   在服务器管理页面，你会找到服务器的 IP 地址、用户名 (`root`) 和密码。
+    *   使用 SSH 客户端连接到服务器：
+        ```bash
+        ssh root@<你的服务器IP地址>
+        ```
+
+3.  **执行安装脚本**
+    *   连接成功后，直接复制并粘贴下面的一键安装指令到终端里，然后按回车执行：
+        ```bash
+        curl -fsSL https://raw.githubusercontent.com/clhui/openvpnfor0.5G/main/install.sh | bash
+        ```
+
+4.  **完成**
+    *   脚本会自动完成所有安装和配置。请按照下面的“安装后操作”章节，从终端输出中找到你的管理员密码并开始使用。
+
 ## 安装后操作
 
 ### 1. 获取登录凭据
