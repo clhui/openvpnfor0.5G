@@ -117,6 +117,50 @@ To login please use the "openvpn" account with "RR4ImyhwbFFq" password.
 - **添加新用户**：你可以在 Web 界面中直接添加新用户（免费版总共支持 2 个并发连接）。
 - **下载客户端配置**：访问 **Client UI**（例如 `https://<你的IP>:943`），使用你创建的普通用户账号登录，即可下载对应的 `.ovpn` 配置文件。
 
+### 4. 配置免密连接（避免每次输入密码）
+
+OpenVPN 客户端每次连接时可能需要输入用户名和密码。如果你想避免这个步骤，有以下几种方法：
+
+#### 方法一：在客户端配置文件中保存凭据（最简便）
+
+1. 下载获得的 `.ovpn` 配置文件后，用文本编辑器打开它。
+2. 在文件末尾添加以下行：
+   ```
+   auth-user-pass creds.txt
+   ```
+3. 在同一目录下创建 `creds.txt` 文件，内容为：
+   ```
+   your_username
+   your_password
+   ```
+   （将 `your_username` 和 `your_password` 替换为你的实际凭据）
+4. 保护此文件的权限（重要）：
+   ```bash
+   chmod 600 creds.txt
+   ```
+5. 使用修改后的 `.ovpn` 文件连接，OpenVPN 会自动从 `creds.txt` 读取凭据。
+
+#### 方法二：在管理后台启用证书认证
+
+1. 登录 Admin UI (`https://<IP>:943/admin`)。
+2. 进入 **User Management** > 选择你的用户。
+3. 配置 **Authentication** 选项，启用证书和密钥认证。
+4. 下载包含证书的 `.ovpn` 配置文件，无需输入密码即可连接。
+
+#### 方法三：修改 .ovpn 配置文件（仅适用于 Linux/Mac）
+
+在 `.ovpn` 文件中添加：
+```
+auth-nocache
+auth-user-pass
+```
+然后使用以下命令连接，并在提示时输入密码（系统不会缓存）：
+```bash
+openvpn --config your_config.ovpn
+```
+
+**安全建议**：如果使用方法一保存凭据，请确保 `creds.txt` 文件权限为 `600`（仅所有者可读写），并避免在不安全的网络中使用。
+
 ## 安全警告
 
 本脚本为了最大程度地简化安装，会自动禁用 `ufw` 和 `firewalld`。这意味着服务器的防火墙将被关闭。在生产环境中，建议根据实际需求配置更精细的防火墙规则，而不是完全禁用。
