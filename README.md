@@ -20,11 +20,7 @@
 
 ### 一键安装指令
 
-请将下面的 `USERNAME` 和 `REPO` 替换为你的 GitHub 用户名和仓库名。
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO/main/install.sh | bash
-```
+curl -fsSL https://raw.githubusercontent.com/clhui/openvpnfor0.5G/main/install.sh | bash
 
 安装完成后，第一个客户端的配置文件会生成在 `/root/client.ovpn`。
 
@@ -40,7 +36,7 @@ curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO/main/install.sh | bas
 **示例：** 使用 2048MB Swap 和 443/tcp 端口进行安装。
 
 ```bash
-SWAP_SIZE_MB=2048 PORT=443 PROTO=tcp curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO/main/install.sh | bash
+SWAP_SIZE_MB=2048 PORT=443 PROTO=tcp curl -fsSL https://raw.githubusercontent.com/clhui/openvpnfor0.5G/main/install.sh | bash
 ```
 
 ## 新增客户端
@@ -51,7 +47,7 @@ SWAP_SIZE_MB=2048 PORT=443 PROTO=tcp curl -fsSL https://raw.githubusercontent.co
 
 ```bash
 # 下载新增客户端脚本
-curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO/main/add-client.sh -o add-client.sh
+curl -fsSL https://raw.githubusercontent.com/clhui/openvpnfor0.5G/main/add-client.sh -o add-client.sh
 chmod +x add-client.sh
 
 # 执行脚本以创建名为 alice 的客户端
