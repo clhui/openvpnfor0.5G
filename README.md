@@ -120,8 +120,17 @@ To login please use the "openvpn" account with "RR4ImyhwbFFq" password.
 ### 4. 配置免密连接（避免每次输入密码）
 
 OpenVPN 客户端每次连接时可能需要输入用户名和密码。如果你想避免这个步骤，有以下几种方法：
+#### 方法一：在管理后台启用证书认证（最简便）
 
-#### 方法一：在客户端配置文件中保存凭据（最简便）
+1. 登录 Admin UI (`https://<IP>:943/admin`)。
+2. 进入 **User** > 选择你的用户。
+3. 配置 **Authentication** 选项，启用证书和密钥认证。
+4. 下载包含证书的 `.ovpn` 配置文件，无需输入密码即可连接。
+ <img width="487" height="610" alt="image" src="https://github.com/user-attachments/assets/6171e86c-6159-4a6a-8ed2-60068f12a51b" />
+![Uploading image.png…]()
+
+
+#### 方法二：在客户端配置文件中保存凭据（本地可操作）
 
 1. 下载获得的 `.ovpn` 配置文件后，用文本编辑器打开它。
 2. 在文件末尾添加以下行：
@@ -140,12 +149,7 @@ OpenVPN 客户端每次连接时可能需要输入用户名和密码。如果你
    ```
 5. 使用修改后的 `.ovpn` 文件连接，OpenVPN 会自动从 `creds.txt` 读取凭据。
 
-#### 方法二：在管理后台启用证书认证
 
-1. 登录 Admin UI (`https://<IP>:943/admin`)。
-2. 进入 **User Management** > 选择你的用户。
-3. 配置 **Authentication** 选项，启用证书和密钥认证。
-4. 下载包含证书的 `.ovpn` 配置文件，无需输入密码即可连接。
 
 #### 方法三：修改 .ovpn 配置文件（仅适用于 Linux/Mac）
 
