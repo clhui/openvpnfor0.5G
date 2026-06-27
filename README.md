@@ -126,9 +126,11 @@ OpenVPN 客户端每次连接时可能需要输入用户名和密码。如果你
 2. 进入 **User** > 选择你的用户。
 3. 配置 **Authentication** 选项，启用证书和密钥认证。
 4. 下载包含证书的 `.ovpn` 配置文件，无需输入密码即可连接。
+
+<img width="1312" height="621" alt="image" src="https://github.com/user-attachments/assets/ad0652b1-73de-4012-bfa4-7fae24dd2073" />
+
  <img width="487" height="610" alt="image" src="https://github.com/user-attachments/assets/6171e86c-6159-4a6a-8ed2-60068f12a51b" />
- <img width="487" height="610" alt="image" src="https://github.com/user-attachments/assets/c7e9d390-f9fb-489e-890a-cdf48d9b8ccf" />
-![Uploading image.png…]()
+
 
 
 #### 方法二：在客户端配置文件中保存凭据（本地可操作）
