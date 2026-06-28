@@ -23,6 +23,8 @@
 
 **方式一：使用管道 (pipe)**
 ```bash
+wget -qO- https://raw.githubusercontent.com/clhui/openvpnfor0.5G/main/install.sh | bash
+或者
 curl -fsSL https://raw.githubusercontent.com/clhui/openvpnfor0.5G/main/install.sh | bash
 ```
 
@@ -30,7 +32,6 @@ curl -fsSL https://raw.githubusercontent.com/clhui/openvpnfor0.5G/main/install.s
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/clhui/openvpnfor0.5G/main/install.sh)
 ```
-
 ### 自定义 Swap 大小
 
 默认创建 1024MB 的 Swap。你可以通过设置 `SWAP_SIZE_MB` 环境变量来调整大小。
